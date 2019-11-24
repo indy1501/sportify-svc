@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
+
 const businesses = require('./routes/businesses');
 const users = require('./routes/users');
 const app = express();
@@ -15,7 +16,7 @@ app.use('/businesses', businesses);
 app.use('/users', users);
 
 app.get('/', function (req, res) {
-    res.send('Hello World')
+    res.send('Hello World from Code Ninjas')
 })
 
 
