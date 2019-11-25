@@ -5,7 +5,7 @@ files:
   - source: /
     destination: /home/ubuntu/Sportify-app
 hooks:    
-BeforeInstall:
+  BeforeInstall:
     - location: scripts/before_install.sh
       timeout: 1200
       runas: ubuntu
