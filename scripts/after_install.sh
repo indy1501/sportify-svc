@@ -1,6 +1,5 @@
 #!/bin/bash
 
-mkdir /home/ubuntu/Sportify-svc
-cd /home/ubuntu/Sportify-svc
-
+mkdir /home/ubuntu/Sportify-app
+cd /home/ubuntu/Sportify-app
 sudo npm install

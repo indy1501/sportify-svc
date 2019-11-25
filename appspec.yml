@@ -3,7 +3,7 @@ version: 0.0
 os: linux 
 files:
   - source: /
-    destination: /home/ubuntu/Sportify-svc
+    destination: /home/ubuntu/Sportify-app
 hooks:    
 BeforeInstall:
     - location: scripts/before_install.sh
