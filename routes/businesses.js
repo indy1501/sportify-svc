@@ -178,7 +178,7 @@ router.post('/:business_id/reviews', (req, res) => {
 
     dynamodbDocClient.put(review_params, (err, result_reviews) => {
         if (err) {
-            console.error("Unable to add a review to reviews-merged-data table Error JSON:", JSON.stringify(err));
+            console.error("Unable to add review to reviews-merged-data table Error JSON:", JSON.stringify(err));
             return res.status(500).json({error: "Unable to add review to reviews-merged-data table"});
         } else {
             console.log("Result of adding to review to reviews-merged-data table ", result_reviews);
