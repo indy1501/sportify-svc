@@ -16,15 +16,14 @@ it('Check get business by business id is working', function(done) {
   });
 });
 
-it('Check search business by event type is working', function(done) {
-  const options = {
-    method: 'GET'
-  };
-  request('http://localhost:3001/businesses?event_type=restaurant&city=Danville',options, function (error, response, body) {
-    expect(response.statusCode).to.equal(200);
-
-    const bodyJson = JSON.parse(response.body);
-    expect(bodyJson.length).to.not.be.null;
-    done();
-  });
+it('Check search business by event type is working', function (done) {
+  axios.get('http://localhost:3001/businesses?event_type=restaurant&city=Danville')
+      .then((res) => {
+        expect(res.status).to.equal(200);
+        done();
+      })
+      .catch((error) => {
+        console.error(error)
+        done();
+      })
 });
