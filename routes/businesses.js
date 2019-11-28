@@ -3,6 +3,7 @@ const express = require('express');
 const AWS = require('aws-sdk');
 const router = new express.Router();
 const uuid = require('uuidv4').default;
+require('dotenv').config();
 
 AWS.config.update({
     region: process.env.region,
