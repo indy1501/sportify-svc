@@ -4,7 +4,7 @@ const axios = require('axios');
 const request = require('request');
 const expect = require('chai').expect;
 
-require("../index.js");
+require("../routes/businesses.js");
 
 it('Check get business by business id is working', function(done) {
     axios.get('http://localhost:3001/businesses/02151fdb-8b50-4068-b8a1-1d24ed425c59')

@@ -106,6 +106,8 @@ router.get('/:user_id/businesses', async (req, res) => {
             let businesses_result = await dynamodbDocClient.query(businesses_params).promise();
             if (businesses_result && businesses_result.Items && businesses_result.Items.length > 0) {
                 console.log("Businesses Query results", businesses_result.Items[0]);
+                console.log("split string", businesses_result.Items[0].categories.split(","));
+                businesses_result.Items[0].categories = businesses_result.Items[0].categories.split(",");
                 return res.json(businesses_result.Items[0]);
             } else {
                 return res.status(404).json({error: "Businesses not found"});
