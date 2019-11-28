@@ -86,7 +86,7 @@
         "address": "string",
         "city": "string",
         "name": "string",
-        "categories": "string (comma separated categories)",
+        "categories": ["string", "string"] ,
         "state": "string",
         "postal_code": "string",
         "business_id": "string"
