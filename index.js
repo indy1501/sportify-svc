@@ -2,8 +2,8 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config({path:'/home/ubuntu/.env'});
 
-const businesses = require('./routes/businesses');
-const users = require('./routes/users');
+const businesses = require('./routes/sportify/businesses');
+const users = require('./routes/sportify/users');
 const app = express();
 const bodyparser = require("body-parser");
 const port = process.env.PORT || 8080;
@@ -12,8 +12,8 @@ const port = process.env.PORT || 8080;
 app.use(cors())
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: false}));
-app.use('/businesses', businesses);
-app.use('/users', users);
+app.use('/sportify/businesses', businesses);
+app.use('/sportify/users', users);
 
 app.get('/', function (req, res) {
     res.send('Hello World from Code Ninjas.')
