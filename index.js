@@ -2,8 +2,8 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config({path:'/home/ubuntu/.env'});
 
-const businesses = require('./routes/sportify/businesses');
-const users = require('./routes/sportify/users');
+const businesses = require('./routes/businesses');
+const users = require('./routes/users');
 const app = express();
 const bodyparser = require("body-parser");
 const port = process.env.PORT || 8080;
