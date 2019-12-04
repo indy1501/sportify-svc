@@ -13,6 +13,7 @@ AWS.config.update({
 const dynamodbDocClient = new AWS.DynamoDB.DocumentClient();
 
 router.post('/:user_id/businesses', async (req, res) => {
+    console.log("creating business for userId ",req.params.user_id);
     console.log("process.env.endpoint ",process.env.endpoint);
     let business_id = uuid(), result_user_business, result_businesses;
     const user_business_params = {
