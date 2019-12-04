@@ -50,7 +50,7 @@ router.post('/:user_id/businesses', async (req, res) => {
         result_user_business = await dynamodbDocClient.put(user_business_params).promise();
     } catch (err) {
         //console.error("Unable to add user to user_business table", JSON.stringify(err));
-        return res.status(500).json({error: "Unable to add user. User already has a associated business"});
+        return res.status(500).json({error: "Unable to add user.",err:err});
     }
     try {
         const businesses_params = {
