@@ -16,7 +16,7 @@ app.use('/businesses', businesses);
 app.use('/users', users);
 
 app.get('/', function (req, res) {
-    res.send('Hello World from Code Ninjas.')
+    res.send('Sportify SVC Backend')
 })
 
 
