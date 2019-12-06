@@ -10,7 +10,7 @@ require("../index.js");
 
 
 it('Check the Statuscode for Get user Businesses api', function(done) {
-  axios.get(`https://sportifysvc.codeninjas.cf/users/test_11@gmail.com/businesses`)
+  axios.get(`https://sportifysvc.codeninjas.cf/users/mayurib1@hotmail.com/businesses`)
   .then((res) => {
     expect(res.status).to.equal(200);
     done();
