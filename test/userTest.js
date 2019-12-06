@@ -10,7 +10,7 @@ require("../index.js");
 
 
 it('Check the Statuscode for Get user Businesses api', function(done) {
-  axios.get(`${process.env.API_endPointUrl}/users/test_11@gmail.com/businesses`)
+  axios.get(`https://sportifysvc.codeninjas.cf/users/test_11@gmail.com/businesses`)
   .then((res) => {
     expect(res.status).to.equal(200);
     done();
@@ -25,14 +25,14 @@ it('Check the Statuscode for Get user Businesses api', function(done) {
 describe('Get User businesses', () => {
 
   beforeEach(() => {
-    nock(`${process.env.API_endPointUrl}`)
-      .get(`/users/test_user@gmail.com/businesses`)
+    nock('https://sportifysvc.codeninjas.cf')
+      .get('/users/test_user@gmail.com/businesses')
       .reply(200, response);
   });
   
   it('Get business associated with user', function(done){
 
-    axios.get(`${process.env.API_endPointUrl}/users/test_user@gmail.com/businesses`)
+    axios.get(`https://sportifysvc.codeninjas.cf/users/test_user@gmail.com/businesses`)
     .then((res) => {
       
         expect(response.name).to.equal('Test Business');
@@ -48,7 +48,7 @@ describe('Get User businesses', () => {
 });
 
 it('Check the Statuscode for add new business api', function (done) {
-  axios.post(`${process.env.API_endPointUrl}/users/test_11@gmail.com/businesses`, {
+  axios.post(`https://sportifysvc.codeninjas.cf/users/test_11@gmail.com/businesses`, {
       "name": "Test Business",
       "categories": ["asian_food_4","restaurant_4"],
       "address": "1741 Gold Hill Rd, Ste 108",
