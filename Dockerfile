@@ -12,6 +12,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+# Map Jenkins port 8080 to application port 3001
 EXPOSE 8080:3001
 
 CMD [ "node", "index.js" ]
