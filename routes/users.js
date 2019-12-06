@@ -13,6 +13,7 @@ AWS.config.update({
 const dynamodbDocClient = new AWS.DynamoDB.DocumentClient();
 
 router.post('/:user_id/businesses', async (req, res) => {
+    console.log("creating business for userId ",req.params.user_id);
     console.log("process.env.endpoint ",process.env.endpoint);
     let business_id = uuid(), result_user_business, result_businesses;
     const user_business_params = {
@@ -49,7 +50,7 @@ router.post('/:user_id/businesses', async (req, res) => {
         result_user_business = await dynamodbDocClient.put(user_business_params).promise();
     } catch (err) {
         //console.error("Unable to add user to user_business table", JSON.stringify(err));
-        return res.status(500).json({error: "Unable to add user. User already has a associated business"});
+        return res.status(500).json({error: "Unable to add user.",err:err});
     }
     try {
         const businesses_params = {
@@ -106,8 +107,11 @@ router.get('/:user_id/businesses', async (req, res) => {
             let businesses_result = await dynamodbDocClient.query(businesses_params).promise();
             if (businesses_result && businesses_result.Items && businesses_result.Items.length > 0) {
                 console.log("Businesses Query results", businesses_result.Items[0]);
-                console.log("split string", businesses_result.Items[0].categories.split(","));
-                businesses_result.Items[0].categories = businesses_result.Items[0].categories.split(",");
+                if(!Array.isArray(businesses_result.Items[0].categories)) {
+                    console.log("split string", businesses_result.Items[0].categories.split(","));
+                    businesses_result.Items[0].categories = businesses_result.Items[0].categories.split(",");
+                }
+
                 return res.json(businesses_result.Items[0]);
             } else {
                 return res.status(404).json({error: "Businesses not found"});
