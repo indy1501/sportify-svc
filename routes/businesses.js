@@ -147,6 +147,10 @@ router.get('/:business_id', async (req, res) => {
         console.log("business query results :", business_result);
         if(business_result && business_result.Items && business_result.Items.length > 0) {
             console.log("Businesses Query results", business_result.Items);
+            // if(!Array.isArray(business_result.Items[0].categories)) {
+            //     console.log("split string", business_result.Items[0].categories.split(","));
+            //     business_result.Items[0].categories = business_result.Items[0].categories.split(",");
+            // }
             return res.json(business_result.Items);
         }
         else {
