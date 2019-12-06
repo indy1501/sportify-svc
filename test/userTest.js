@@ -57,7 +57,7 @@ it('Check the Statuscode for add new business api', function (done) {
       "postal_code": "95045"
   })
     .then((res) => {
-      expect(res.status).to.equal(500);
+      expect(res.status).to.equal(200);
       done();
     })
     .catch((error) => {
