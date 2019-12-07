@@ -32,7 +32,7 @@ router.get('', async (req, res) => {
                 ':city': city,
                 ':event_type': event_type
             },
-            Limit:10
+            Limit:5
         };
     } else if (req.query.city) {
         city = req.query.city;
